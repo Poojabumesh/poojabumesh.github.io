@@ -30,6 +30,8 @@ By combining **machine learning, vector embeddings, and LLM-based reranking,** w
 
 ## Design
 
+![High-level system diagram](assets/images/semantic_search.png)
+
 The system architecture was modular and consisted of the following components:
 1. **Intent Classification**
   - Categorized incoming queries as:
