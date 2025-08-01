@@ -10,6 +10,7 @@ author: poojabumesh
 # Enhancing Product Search with AI: My Internship Experience
 
 During my internship as a Machine Learning Engineer at a fast-paced e-commerce startup, I worked on building a semantic search and recommendation system to improve product discovery in a large catalog. 
+
 ---
 
 ## Objective
