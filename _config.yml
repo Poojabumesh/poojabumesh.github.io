@@ -57,7 +57,7 @@ plugins:
 
 author:
   name   : "Pooja Baralu Umesh"
-  avatar : "/assets/images/pooja.jpg"
+  avatar : "/assets/images/pooja.jepg"
   bio    : "Machine Learning Engineer | AI enthusiast"
   links:
     - label: "GitHub"
