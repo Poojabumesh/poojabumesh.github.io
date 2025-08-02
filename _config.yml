@@ -1,5 +1,5 @@
 remote_theme: mmistakes/minimal-mistakes
-minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "dark"
 
 # Site identity
 locale: "en-US"
@@ -32,7 +32,7 @@ author:
       url: "https://github.com/poojabumesh"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/poojabumesh"
+      url: "https://www.linkedin.com/in/pooja-baraluumesh"
 
 # Comments configuration
 comments:
