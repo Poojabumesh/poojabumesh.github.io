@@ -12,4 +12,4 @@ Over the past year, I’ve:
 
 My core interests include **deep learning**, **generative AI**, **system design**, and **MLOps**. When I’m not coding, I’m reading fictions, watching reality shows, or exploring the latest advancements in AI research.
 
-Feel free to explore my projects and blog posts, or connect with me on [LinkedIn](https://linkedin.com/in/poojabumesh) and [GitHub](https://github.com/poojabumesh)!  
+Feel free to explore my projects and blog posts, or connect with me on [LinkedIn](https://linkedin.com/in/pooja-baraluumesh) and [GitHub](https://github.com/poojabumesh)!  
