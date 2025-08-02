@@ -69,6 +69,10 @@ exclude:
 
 # Defaults for layouts and features
 defaults:
+  - scope:
+      layout: single
+    values:
+      minimal_mistakes_skin: "dark"
 #posts
   - scope:
       path: ""
@@ -80,7 +84,6 @@ defaults:
       comments: true
       share: true
       related: true
-      minimal_mistakes_skin: "dark"
   #pages
   - scope:
       path: "_pages"
