@@ -36,7 +36,7 @@ author:
 
 # Comments configuration
 comments:
-  provider: false
+  provider: staticman
   disqus:
     shortname: ""
   utterances:
@@ -44,7 +44,7 @@ comments:
     issue_term: pathname
   staticman:
     branch: "master"
-    endpoint: "https://<your-staticman-api>/v3/entry/github/"
+    endpoint: "https://your-staticman-host.com/v3/entry/github/poojabumesh/poojabumesh.github.io/master"
 
 # Analytics (disable or configure your provider)
 analytics:
