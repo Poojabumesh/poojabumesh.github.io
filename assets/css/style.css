@@ -2,9 +2,7 @@
 # Only the front-matter fence is required here
 ---
 
-/// — skin (pick up your `minimal_mistakes_skin` from _config.yml)
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; 
-/// — core styles
 @import "minimal-mistakes";
 
 
