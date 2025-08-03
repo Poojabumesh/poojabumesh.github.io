@@ -30,7 +30,11 @@ By combining **machine learning, vector embeddings, and LLM-based reranking,** w
 
 ## Design
 <p align="center">
-  <img src="/assets/images/semantic_search.png" alt="High-level system diagram" style="max-width:100%;" />
+  <img
+    src="{{ '/assets/images/semantic_search.png' | relative_url }}"
+    alt="High-level system diagram"
+    style="width:400px; height:250px; object-fit:cover;"
+  />
 </p>
 
 
