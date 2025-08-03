@@ -1,0 +1,22 @@
+---
+# Only the front-matter fence is required here
+---
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; 
+@import "minimal-mistakes";
+
+
+// Make all images in posts responsive + outlined
+.post-content img {
+  max-width: 100%;       // never wider than the text column
+  height: auto;          // preserve aspect ratio
+  display: block;        // avoids inline-gap artifacts
+  margin: 1.5rem auto;   // center horizontally, with vertical breathing room
+
+  /* outline styling */
+  border: 2px solid #ddd;   // light grey border
+  outline: 2px solid #333;  // darker grey outline
+  padding: 4px;             // inset so the outline isn’t flush
+  box-sizing: border-box;   // include border/padding in the width
+}
+
