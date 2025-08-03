@@ -33,7 +33,7 @@ By combining **machine learning, vector embeddings, and LLM-based reranking,** w
   <img
     src="{{ '/assets/images/semantic_search.png' | relative_url }}"
     alt="System diagram"
-    style="width:900px; height:250px; border:1px solid #ccc; padding:4px;"
+    style="width:1100px; height:350px; border:1px solid #ccc; padding:4px;"
   />
 </p>
 
