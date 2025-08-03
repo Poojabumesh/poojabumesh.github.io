@@ -29,11 +29,11 @@ By combining **machine learning, vector embeddings, and LLM-based reranking,** w
 ---
 
 ## Design
-<p align="center" style="width:600px; height:300px; margin:2rem auto;">
+<p align="center">
   <img
     src="{{ '/assets/images/semantic_search.png' | relative_url }}"
     alt="System diagram"
-    style="width:100%; height:100%; object-fit:contain; border:1px solid #ccc; padding:4px; box-sizing:border-box;"
+    style="width:500px; height:auto; border:1px solid #ccc; padding:4px;"
   />
 </p>
 
