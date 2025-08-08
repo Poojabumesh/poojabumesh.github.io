@@ -1,3 +1,12 @@
+---
+title: "Building a Three-in-One Tweet Intelligence Engine"
+layout: post
+date: 2025-08-07
+categories: [Machine Learning, NLP, Social Media Analytics]
+tags: [DistilBERT, GPT-2, Transformers, HuggingFace, Tweet Analysis, Multi-task Learning, Python, Scikit-learn]
+author: poojabumesh
+---
+
 # Building a Three-in-One Tweet Intelligence Engine
 
 What if analyzing a single tweet could reveal its emotional DNA, suggest viral hashtags, and predict engagement : all in one unified system?
