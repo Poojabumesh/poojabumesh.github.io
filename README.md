@@ -1,7 +1,7 @@
 # Pooja’s AI & ML Portfolio
 
 Hello! I’m **Pooja Baralu Umesh**, a machine-learning engineer passionate about production-grade AI systems, computer vision, and data-centric ML.  
-This GitHub Pages site (<https://pooja-baraluumesh.github.io>) curates my projects, technical blog posts, and talk slides in one place.
+This GitHub Pages site (<https://poojabumesh.github.io>) curates my projects, technical blog posts, and talk slides in one place.
 
 ---
 
