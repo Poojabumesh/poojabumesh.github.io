@@ -9,8 +9,8 @@ This GitHub Pages site (<https://pooja-baraluumesh.github.io>) curates my projec
 
 | Section | Contents |
 |---------|----------|
-| **Projects** | Deep-dives, notebooks, and demos for end-to-end ML solutions. |
 | **Blog** | Bite-sized posts on MLOps, CV tricks, interview prep, and book notes. |
+| **Projects** | Deep-dives, notebooks, and demos for end-to-end ML solutions. |
 | **Resources** | Cheat sheets, reading lists, and interview question banks. |
 
 
