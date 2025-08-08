@@ -1,106 +1,573 @@
 ---
-title: "Building a Three-in-One Tweet Intelligence Engine"
+title: "Building an AI-Powered Search with RAG, OpenAI, and Pinecone"
 layout: post
-date: 2025-08-07
-categories: [Machine Learning, NLP, Social Media Analytics]
-tags: [DistilBERT, GPT-2, Transformers, HuggingFace, Tweet Analysis, Multi-task Learning, Python, Scikit-learn]
+date: 2025-07-30
+categories: [LLMs, RAG, NLP]
+tags: [OpenAI, Pinecone, AWS, HuggingFace, RAG, Lambda]
 author: poojabumesh
+excerpt: "During my internship as a Machine Learning Engineer at a fast-paced e-commerce startup, I worked on building a semantic search and recommendation system to improve product discovery in a large catalog."
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
 ---
 
-# Building a Three-in-One Tweet Intelligence Engine
+<div class="blog-header">
+  <h1 class="blog-title">{{ page.title }}</h1>
+  <div class="blog-meta">
+    <span class="blog-date">📅 {{ page.date | date: "%B %d, %Y" }}</span>
+    <span class="blog-author">👨‍💻 {{ page.author }}</span>
+    <span class="blog-tags">🏷️ 
+      {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </span>
+  </div>
+</div>
 
-What if analyzing a single tweet could reveal its emotional DNA, suggest viral hashtags, and predict engagement : all in one unified system?
+<div class="blog-content">
 
-Most social-media analytics tools answer one question well and fall short on the rest. A sentiment dashboard might tell you "people are happy," a separate growth tool suggests trending hashtags, and a paid platform estimates reach but nothing speaks a single language end to end. So the project began with a simple goal: take one raw tweet and generate three perspectives on it : its emotion, its best hashtags, and its likely popularity, without requiring three different systems.
+## 🚀 Enhancing Product Search with AI: My Internship Experience
 
-## Business Impact: Beyond the Models
+During my internship as a Machine Learning Engineer at a fast-paced e-commerce startup, I worked on building a semantic search and recommendation system to improve product discovery in a large catalog.
 
-This isn't just a technical exercise : it solves real workflow problems:
+<div class="highlight-box">
+💡 <strong>Key Challenge:</strong> Traditional keyword-based search often produced irrelevant results, making it difficult for users to quickly find what they needed.
+</div>
 
-For Content Creators:
-- Pre-publish optimization: Test tweet variations and pick the highest scorer
-- Brand consistency: Ensure emotional tone matches your brand voice
-- Smart hashtag discovery: Generate relevant tags without manual research
+---
 
-For Marketing Teams:
-- Campaign forecasting: Predict engagement before hitting publish
-- Content calendar balance: Mix emotional variety across scheduled posts
-- Competitor analysis: Decode what makes their content viral
+## 🎯 Objective
 
-For Social Media Agencies:
-- Unified client reporting: Replace fragmented analytics with single insights
-- Scale content approval: Process hundreds of posts quickly
-- Set realistic expectations: Help clients understand engagement potential
+The primary objective of my internship project was to **enhance product search and retrieval** using AI.
 
-Real example: A wellness brand discovered their "fear"-tagged health content consistently underperformed "joy"-tagged posts by 31%, leading them to reframe educational content around positive outcomes rather than scary statistics.
+### What We Set Out to Accomplish:
 
---
+<div class="objective-grid">
+  <div class="objective-card">
+    <h4>🧠 Understand User Intent</h4>
+    <p>Go beyond simple keyword matching to understand what users really want</p>
+  </div>
+  
+  <div class="objective-card">
+    <h4>🔍 Semantic Retrieval</h4>
+    <p>Retrieve semantically relevant products from a large catalog using embeddings</p>
+  </div>
+  
+  <div class="objective-card">
+    <h4>📊 Smart Reranking</h4>
+    <p>Rerank results to present the most meaningful items first</p>
+  </div>
+</div>
 
-## The hypothesis
+By combining **machine learning, vector embeddings, and LLM-based reranking,** we aimed to create a system that significantly improved user search experience.
 
-If a machine can recognise the feeling in a message and suggest context-appropriate hashtags, perhaps the same linguistic signals – combined with basic engagement counts – also contain enough information to forecast popularity.  In other words, the pipeline should be able to answer:
-1. What vibe does this text project?
+---
 
+## 🏗️ Design
 
-2. How can we tag it so the right people see it?
+<div class="image-container">
+  <img
+    src="{{ '/assets/images/semantic_search.png' | relative_url }}"
+    alt="System Architecture Diagram"
+    class="blog-image"
+  />
+  <p class="image-caption"><em>System architecture showing the complete AI-powered search pipeline</em></p>
+</div>
 
+The system architecture was modular and consisted of the following components:
 
-3. Will those people actually interact with it?
+### 🎭 1. Intent Classification
+<div class="component-section">
+  <p><strong>Purpose:</strong> Categorized incoming queries to guide downstream processing</p>
+  
+  **Query Types:**
+  - 🛍️ **Recommendation** → *"Suggest a fruity red wine"*
+  - ℹ️ **Informational** → *"What is a Pinot Noir?"*
+  - 💬 **Conversational** → *"I need a wine for dinner tonight"*
+  
+  <div class="tech-note">
+  <strong>Impact:</strong> Guided the downstream retrieval and reranking logic for better results
+  </div>
+</div>
 
+### 🔢 2. Vector-Based Retrieval
+<div class="component-section">
+  <p><strong>Core Technology:</strong> Semantic embeddings + vector similarity search</p>
+  
+  **Implementation Details:**
+  - Embedded all product attributes into a **semantic vector space** using **sentence transformers**
+  - Retrieved top candidate products using **cosine similarity** on **Pinecone vector database**
+  
+  <div class="tech-note">
+  <strong>Why This Works:</strong> Captures meaning and context, not just keyword matches
+  </div>
+</div>
 
-Each question leans on different aspects of language modelling, so I decided to chain three specialised models rather than train one monolith.
+### 🎯 3. Reranking Layer
+<div class="component-section">
+  <p><strong>Refinement Stage:</strong> LLM-powered contextual reranking</p>
+  
+  **Process:**
+  - Applied **LLM-powered reranking** (via Cohere Reranker) to refine the top results
+  - Focused on **contextual relevance** to the query
+  
+  <div class="tech-note">
+  <strong>Result:</strong> Dramatically improved relevance of final search results
+  </div>
+</div>
 
---
+### 🧹 4. Duplicate Filtering
+<div class="component-section">
+  <p><strong>Quality Control:</strong> Ensuring clean, diverse results</p>
+  
+  **Methods:**
+  - Used **Levenshtein distance** and semantic checks to remove near-duplicate products
+  - Ensured cleaner, more diverse search results
+  
+  <div class="tech-note">
+  <strong>Impact:</strong> Better user experience with varied, high-quality results
+  </div>
+</div>
 
-## Why these specific models?
-- **Emotion** : I chose the DistilBERT variant fine-tuned on six basic emotions because it strikes the balance between accuracy and inference cost.  Larger models gained only fractional F1 points yet needed GPUs for live prediction.
-- **Hashtags** : GPT-2 may look dated next to today’s chat models, but when I began the project it was the most viable open-source option: it delivers playful, open-ended generations while running happily on commodity hardware. Prompting with tweet text + “ #” nudges the model into hashtag mode, and a quick regex strips any stray words. Newer instruction-tuned LLMs were available, yet they felt like overkill or came with restrictive licences.
-- **Popularity** : Early experiments with neural heads (simple MLPs, even gradient boosting) showed marginal gains over a classic linear regressor once I added the right features: CLS embeddings, likes, shares, text length, hashtag count.  The linear model wins on transparency and training speed; we can re-train it in seconds when fresh data arrives.
+### ☁️ 5. Deployment
+<div class="component-section">
+  <p><strong>Serverless Architecture:</strong> Scalable, cost-effective deployment</p>
+  
+  **Infrastructure:**
+  - Deployed as a **serverless pipeline** using **AWS Lambda**, integrating Pinecone and third-party APIs for reranking
+  - Designed for low-latency response in a real-time user interface
+  
+  <div class="tech-note">
+  <strong>Benefits:</strong> Auto-scaling, reduced infrastructure costs, and seamless API integration
+  </div>
+</div>
 
-## Pipeline design decisions
-**Stateless tasks** up front, stateful task at the end
-Emotion and hashtag modules don’t require any fit/persist cycle, so they run first and hand their outputs forward.  Popularity involves a trainable regressor and scaler, so it lives at the tail of the chain where all features are present.
+---
 
-**Batch every transformer call**
+## 📊 Data Processing
 
-Processing tweets one by one cut throughput to a crawl.  Feeding lists into the tokenizer and passing the entire batch to the model reduced embedding time from minutes to seconds for a 10 000-row CSV.
+<div class="section-intro">
+The data processing workflow was critical to enable semantic search:
+</div>
 
-**Keep numeric signals**
+<div class="process-grid">
+  <div class="process-card">
+    <h4>📦 Product Embeddings</h4>
+    <ul>
+      <li>Curated titles, descriptions, and attributes for thousands of products</li>
+      <li>Generated <strong>dense embeddings</strong> with a pre-trained transformer</li>
+    </ul>
+  </div>
 
-It was tempting to rely exclusively on language embeddings for popularity, but real engagement counts (likes, shares) consistently ranked among the top coefficients.  Dropping them reduced R² by roughly 0.15 on validation sets.
+  <div class="process-card">
+    <h4>🔍 Query Pre-processing</h4>
+    <ul>
+      <li>Normalized, tokenized, and embedded user queries in the same vector space</li>
+      <li>Enabled direct <strong>semantic similarity</strong> comparisons between queries and products</li>
+    </ul>
+  </div>
 
---
+  <div class="process-card">
+    <h4>✨ Filtering & Cleaning</h4>
+    <ul>
+      <li>Applied post-processing to remove repetitive, low-quality, or near-identical results</li>
+      <li>Optimized embeddings for <strong>efficient vector search</strong> in Pinecone</li>
+    </ul>
+  </div>
+</div>
 
-## What almost worked but didn’t
-– **Joint multitask fine-tuning**.  I tried a single encoder feeding multiple heads.  Emotion accuracy fell, the hashtag head started predicting whole sentences, and popularity never converged.  Separate specialists proved more stable.
-– **Hashtag zero-shot classification**.  Using a semantic search through trending tags seemed elegant, but the recall on niche topics was terrible.  Generative text with a filter recovered far richer tags.
-– **Deep regressor**.  An MLP on embeddings and engagement counts edged the linear model by 2 % MAE, but training times ballooned and interpretability vanished.  For product teams who ask “why did you score this 78?”, linear regression is an easier sell.
+---
 
---
+## ⚡ Optimization
 
-## Surprising observations
-- GPT-2, despite being released in 2019, generates cleaner hashtags than larger causal LMs once you drop temperature below 0.7 and prune duplicates.
-- Text length saturates – beyond 180 characters extra words barely shift predicted popularity, but hashtag count continues to help up to about five tags.
+<div class="section-intro">
+Performance optimization was a key focus to ensure a smooth user experience:
+</div>
 
---
+<div class="optimization-section">
+  <div class="optimization-item">
+    <div class="optimization-header">
+      <h4>🚀 1. Latency Reduction</h4>
+      <div class="performance-badge">~2 minutes → <30 seconds</div>
+    </div>
+    <ul>
+      <li>Streamlined API calls and restructured the pipeline</li>
+      <li>Reduced <strong>end-to-end response time</strong> from <strong>~2 minutes to under 30 seconds</strong></li>
+    </ul>
+  </div>
 
-## Current limitations
-The pipeline caps at 10 000 rows per run, mostly because the CLI defaults to that slice of the CSV.  GPU users can safely lift the ceiling.  Also, the regressor must be trained at least once before inference; skipping that step throws a scaler error, something I plan to guard against more gracefully.
+  <div class="optimization-item">
+    <div class="optimization-header">
+      <h4>🎨 2. Prompt Engineering</h4>
+    </div>
+    <ul>
+      <li>Tuned LLM prompts for <strong>contextual reranking</strong></li>
+      <li>Improved semantic relevance and reduced ambiguous results</li>
+    </ul>
+  </div>
 
---
+  <div class="optimization-item">
+    <div class="optimization-header">
+      <h4>🔄 3. Deduplication Logic</h4>
+    </div>
+    <ul>
+      <li>Integrated <strong>string-based</strong> and <strong>semantic similarity scoring</strong></li>
+      <li>Prevented duplicate or visually identical products in top recommendations</li>
+    </ul>
+  </div>
+</div>
 
-## Next research questions
-1. Would replacing GPT-2 with a 7-b Llama variant fine-tuned on trending-tag pairs raise relevance without a GPU tax?
+---
 
+## 📈 Evaluation
 
-2. Could a contrastive loss tie emotion embeddings directly to popularity so we drop the numeric features altogether?
+<div class="section-intro">
+To ensure the system was effective and robust:
+</div>
 
+<div class="evaluation-grid">
+  <div class="evaluation-card">
+    <h4>📋 Custom Evaluation Dataset</h4>
+    <div class="metric-highlight">~250 diverse queries</div>
+    <ul>
+      <li>Created a test set of <strong>~250 diverse queries</strong> representing real user intent</li>
+      <li>Used this for regression testing during iteration</li>
+    </ul>
+  </div>
 
-3. How does the model generalise to other short-form text (Reddit titles, LinkedIn posts) with minimal re-training?
+  <div class="evaluation-card">
+    <h4>👁️ Manual Review</h4>
+    <div class="metric-highlight">Visual inspection</div>
+    <ul>
+      <li>Performed <strong>visual inspection</strong> of top results for subjective relevance</li>
+      <li>Collected feedback from the team to improve reranking logic</li>
+    </ul>
+  </div>
 
---
+  <div class="evaluation-card">
+    <h4>🔍 Embedding Similarity Analysis</h4>
+    <div class="metric-highlight">CLIP-based scoring</div>
+    <ul>
+      <li>Leveraged <strong>CLIP-based similarity scores</strong> to evaluate alignment between product images and query intent</li>
+    </ul>
+  </div>
+</div>
 
-## Takeaway
-Combining three modest-sized transformers in series can yield a practical, interpretable tool that moves from raw text to marketing insight in seconds.  The real win is not squeezing out the last decimal of accuracy but giving writers, analysts, and growth teams a unified lens rather than a stack of siloed dashboards.
+---
 
+## 🎯 Key Takeaways
 
+<div class="takeaway-section">
+  <div class="takeaway-header">
+    <h3>🌟 Complete End-to-End ML Experience</h3>
+    <p>This project was a complete <strong>end-to-end ML experience</strong> from <strong>data processing</strong> and <strong>semantic retrieval</strong> to <strong>latency optimization</strong> and <strong>evaluation in production</strong>.</p>
+  </div>
+
+  <div class="skills-learned">
+    <h4>🧠 Skills I Developed:</h4>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span class="skill-icon">🔍</span>
+        <span>Build hybrid search systems combining embeddings and LLMs</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">⚡</span>
+        <span>Optimize for both accuracy and latency in production ML pipelines</span>
+      </div>
+      <div class="skill-item">
+        <span class="skill-icon">☁️</span>
+        <span>Use vector databases and serverless architectures for scalable deployment</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-note">
+    This experience strengthened my skills in <strong>machine learning engineering, MLOps,</strong> and <strong>semantic search</strong>, while demonstrating how data science and domain knowledge can work together to improve user experience.
+  </div>
+</div>
+
+</div>
+
+<style>
+.blog-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+  border-bottom: 2px solid #e1e5e9;
+}
+
+.blog-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.tag {
+  background: #3498db;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+}
+
+.objective-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.objective-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  transition: transform 0.2s ease;
+}
+
+.objective-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.objective-card h4 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+}
+
+.component-section {
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tech-note {
+  background: #e8f4fd;
+  border-left: 4px solid #2196F3;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.image-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.blog-image {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.image-caption {
+  font-style: italic;
+  color: #666;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.process-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #9b59b6;
+}
+
+.process-card h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.optimization-section {
+  margin: 2rem 0;
+}
+
+.optimization-item {
+  background: #fff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.optimization-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.performance-badge {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.evaluation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.evaluation-card {
+  background: #fff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.evaluation-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.metric-highlight {
+  background: #ff6b6b;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.takeaway-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.takeaway-header h3 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.skills-learned {
+  margin: 2rem 0;
+}
+
+.skills-learned h4 {
+  color: #f8f9fa;
+  margin-bottom: 1rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+}
+
+.final-note {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.blog-content {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.blog-content h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+  font-size: 2rem;
+}
+
+.blog-content h3 {
+  color: #34495e;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .blog-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .objective-grid, .process-grid, .evaluation-grid, .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-title {
+    font-size: 2rem;
+  }
+  
+  .optimization-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+</style>
