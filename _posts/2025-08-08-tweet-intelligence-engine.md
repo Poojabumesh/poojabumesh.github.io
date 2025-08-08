@@ -142,7 +142,13 @@ Combining three modest-sized transformers in series can yield a practical, inter
 .blog-header {text-align:center;margin-bottom:2rem;padding:2rem 0;border-bottom:2px solid #e1e5e9;}
 .blog-header .tag{background:#3498db;color:#fff;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.8rem;margin-right:0.3rem;}
 .blog-content{max-width:900px;margin:0 auto;line-height:1.7;font-size:1.05rem;}
-.blog-header .tag{background:#3498db;color:#fff;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.8rem;margin-right:0.3rem;}
-@media(max-width:768px){.blog-header{padding:1rem 0;}}
+.blog-content h2{color:#2c3e50;border-bottom:2px solid #3498db;padding-bottom:0.3rem;margin-top:2.5rem;font-size:1.8rem;}
+.blog-content h3, .blog-content h4{color:#34495e;margin-top:2rem;}
+.highlight-box{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:1.2rem;border-radius:8px;margin:1.8rem 0;font-size:1.05rem;}
+.objective-grid, .process-grid, .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem;margin:1.8rem 0;}
+.objective-card, .process-card, .skill-item{background:#f8f9fa;padding:1.2rem;border-radius:8px;border-left:4px solid #3498db;}
+.image-container{text-align:center;margin:2rem 0;}
+.blog-image{width:100%;max-width:1100px;height:auto;border:1px solid #ddd;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+.image-caption{font-style:italic;color:#666;margin-top:0.4rem;font-size:0.9rem;}
+@media(max-width:768px){.blog-header{padding:1rem 0;}.blog-content h2{font-size:1.5rem;}.objective-grid,.process-grid,.skills-grid{grid-template-columns:1fr;}}
 </style>
-
