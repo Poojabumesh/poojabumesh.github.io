@@ -1,11 +1,26 @@
----
 title: "Building an AI-Powered Search with RAG, OpenAI, and Pinecone"
 layout: post
 date: 2025-07-30
 categories: [LLMs, RAG, NLP]
 tags: [OpenAI, Pinecone, AWS, HuggingFace, RAG, Lambda]
 author: poojabumesh
----
+excerpt: "During my internship as a Machine Learning Engineer at a fast-paced e-commerce startup, I worked on building a semantic search and recommendation system to improve product discovery in a large catalog."
+header:
+overlay_color: "#000"
+overlay_filter: "0.5"
+<div class="blog-header">
+  <h1 class="blog-title">{{ page.title }}</h1>
+  <div class="blog-meta">
+    <span class="blog-date">📅 {{ page.date | date: "%B %d, %Y" }}</span>
+    <span class="blog-author">👨‍💻 {{ page.author }}</span>
+    <span class="blog-tags">🏷️ 
+      {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </span>
+  </div>
+</div>
+<div class="blog-content">
 
 # Enhancing Product Search with AI: My Internship Experience
 
