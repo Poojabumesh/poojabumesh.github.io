@@ -29,36 +29,27 @@ Most social-media analytics tools answer one question well and fall short on the
 ## Business Impact: Beyond the Models
 
 This isn’t just a technical exercise : it solves real workflow problems:
-
 <div class="objective-grid" markdown="1">
 <div class="objective-grid" markdown="1">
 ### For Content Creators:
-
 **Pre-publish optimization**: Test tweet variations and pick the highest scorer
 **Brand consistency**: Ensure emotional tone matches your brand voice
 **Smart hashtag discovery**: Generate relevant tags without manual research
 </div>
-
 <div class="objective-grid" markdown="1">
 ### For Marketing Teams:
-
 **Campaign forecasting:** Predict engagement before hitting publish
 **Content calendar balance:** Mix emotional variety across scheduled posts
 **Competitor analysis:** Decode what makes their content viral
 </div>
-
 <div class="objective-grid" markdown="1">
 ### For Social Media Agencies:
-
 **Unified client reporting:** Replace fragmented analytics with single insights
 **Scale content approval:** Process hundreds of posts quickly
 **Set realistic expectations:** Help clients understand engagement potential
 </div>
 </div>
-
 **Real example:** A wellness brand discovered their “fear”-tagged health content consistently underperformed “joy”-tagged posts by 31%, leading them to reframe educational content around positive outcomes rather than scary statistics.
-
-–--
 
 ## The hypothesis
 
@@ -70,9 +61,8 @@ If a machine can recognise the feeling in a message and suggest context-appropri
 
 3. Will those people actually interact with it?
 
-> Each question leans on different aspects of language modelling, so I decided to chain three specialised models rather than train one monolith.
+Each question leans on different aspects of language modelling, so I decided to chain three specialised models rather than train one monolith.
 
-–--
 
 ## Why these specific models?
 - **Emotion** : I chose the DistilBERT variant fine-tuned on six basic emotions because it strikes the balance between accuracy and inference cost. Larger models gained only fractional F1 points yet needed GPUs for live prediction.
@@ -85,15 +75,9 @@ If a machine can recognise the feeling in a message and suggest context-appropri
 
 **Stateless tasks** up front, stateful task at the end Emotion and hashtag modules don’t require any fit/persist cycle, so they run first and hand their outputs forward. Popularity involves a trainable regressor and scaler, so it lives at the tail of the chain where all features are present.
 
-#### Batch every transformer call
+#### Batch every transformer call: Processing tweets one by one cut throughput to a crawl. Feeding lists into the tokenizer and passing the entire batch to the model reduced embedding time from minutes to seconds for a 10 000-row CSV.
 
-Processing tweets one by one cut throughput to a crawl. Feeding lists into the tokenizer and passing the entire batch to the model reduced embedding time from minutes to seconds for a 10 000-row CSV.
-
-#### Keep numeric signals
-
-It was tempting to rely exclusively on language embeddings for popularity, but real engagement counts (likes, shares) consistently ranked among the top coefficients. Dropping them reduced R² by roughly 0.15 on validation sets.
-
-–--
+#### Keep numeric signals: It was tempting to rely exclusively on language embeddings for popularity, but real engagement counts (likes, shares) consistently ranked among the top coefficients. Dropping them reduced R² by roughly 0.15 on validation sets.
 
 ## What almost worked but didn’t
 
@@ -102,18 +86,12 @@ It was tempting to rely exclusively on language embeddings for popularity, but r
 – **Hashtag zero-shot classification.** Using a semantic search through trending tags seemed elegant, but the recall on niche topics was terrible. Generative text with a filter recovered far richer tags. 
 – **Deep regressor.** An MLP on embeddings and engagement counts edged the linear model by 2 % MAE, but training times ballooned and interpretability vanished. For product teams who ask “why did you score this 78?”, linear regression is an easier sell.
 
-–--
-
 ## Surprising observations
 - GPT-2, despite being released in 2019, generates cleaner hashtags than larger causal LMs once you drop temperature below 0.7 and prune duplicates.
 - Text length saturates – beyond 180 characters extra words barely shift predicted popularity, but hashtag count continues to help up to about five tags.
 
-–--
-
 ## Current limitations
 The pipeline caps at 10 000 rows per run, mostly because the CLI defaults to that slice of the CSV. GPU users can safely lift the ceiling. Also, the regressor must be trained at least once before inference; skipping that step throws a scaler error, something I plan to guard against more gracefully.
-
-–-- 
 
 ## Next research questions
 <div class="process-grid" markdown="1">
@@ -130,13 +108,10 @@ The pipeline caps at 10 000 rows per run, mostly because the CLI defaults to tha
 </div>
 </div>
 
-–
-
 ## Takeaway
 Combining three modest-sized transformers in series can yield a practical, interpretable tool that moves from raw text to marketing insight in seconds. The real win is not squeezing out the last decimal of accuracy but giving writers, analysts, and growth teams a unified lens rather than a stack of siloed dashboards.
 
 </div>
-
 
 <style>
 .blog-header {text-align:center;margin-bottom:2rem;padding:2rem 0;border-bottom:2px solid #e1e5e9;}
