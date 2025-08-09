@@ -14,7 +14,7 @@ header:
 <div class="blog-header" markdown="1">
 # {{ page.title }}
 <span class="blog-date">📅 {{ page.date | date: "%B %d, %Y" }}</span>  
-<span class="blog-author">👩‍💻 {{ page.author }}</span>
+<span class="blog-author">👩‍💻 {{ page.author }}</span>         
 <span class="blog-tags">🏷️ {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</span>
 </div>
 
