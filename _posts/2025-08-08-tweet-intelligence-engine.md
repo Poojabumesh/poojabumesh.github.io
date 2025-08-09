@@ -30,6 +30,7 @@ Most social-media analytics tools answer one question well and fall short on the
 
 This isn’t just a technical exercise : it solves real workflow problems:
 <div class="objective-grid" markdown="1">
+<div class="objective-grid" markdown="1">
 ### For Content Creators:
 **Pre-publish optimization**: Test tweet variations and pick the highest scorer
 **Brand consistency**: Ensure emotional tone matches your brand voice
@@ -41,11 +42,12 @@ This isn’t just a technical exercise : it solves real workflow problems:
 **Content calendar balance:** Mix emotional variety across scheduled posts
 **Competitor analysis:** Decode what makes their content viral
 </div>
-<div class="objective-grid" markdown="0.5">
+<div class="objective-grid" markdown="1">
 ### For Social Media Agencies:
 **Unified client reporting:** Replace fragmented analytics with single insights
 **Scale content approval:** Process hundreds of posts quickly
 **Set realistic expectations:** Help clients understand engagement potential
+</div>
 </div>
 **Real example:** A wellness brand discovered their “fear”-tagged health content consistently underperformed “joy”-tagged posts by 31%, leading them to reframe educational content around positive outcomes rather than scary statistics.
 
