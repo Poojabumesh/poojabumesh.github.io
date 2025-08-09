@@ -13,40 +13,36 @@ email: "poojabumesh@gmail.com"
 timezone: "America/Los_Angeles"
 title_separator: "-"
 
+# Optional branding
+logo: "/assets/images/pooja.jpeg"   # shows in masthead if present
+assets:
+  css: "/assets/css/custom.css"     # create this file for small tweaks
+
 # Search
 search: true
 search_full_content: false
 
 # Reader settings
 words_per_minute: 200
-enable_dark_mode: true
 
 # Author profile
 author:
   name: "Pooja Baralu Umesh"
   avatar: "/assets/images/pooja.jpeg"
-  bio: "Machine Learning Engineer | AI enthusiast"
+  bio: "Machine Learning Engineer · NLP, Retrieval, MLOps"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/poojabumesh"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/pooja-baraluumesh"
+      url: "https://www.linkedin.com/in/pooja-baralu-umesh/"
 
-# Comments configuration
+# Comments (disabled to avoid Staticman placeholder issues)
 comments:
-  provider: staticman
-  disqus:
-    shortname: ""
-  utterances:
-    theme: github-light
-    issue_term: pathname
-  staticman:
-    branch: "master"
-    endpoint: "https://your-staticman-host.com/v3/entry/github/poojabumesh/poojabumesh.github.io/master"
+  provider: false
 
-# Analytics (disable or configure your provider)
+# Analytics (configure later if needed)
 analytics:
   provider: false
 
@@ -58,7 +54,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 
-# Include and exclude
+# Include / exclude
 include:
   - _pages
 exclude:
@@ -67,13 +63,9 @@ exclude:
   - node_modules
   - vendor/
 
-# Defaults for layouts and features
+# Defaults
 defaults:
-  - scope:
-      layout: single
-    values:
-      minimal_mistakes_skin: "dark"
-#posts
+  # Posts
   - scope:
       path: ""
       type: posts
@@ -81,27 +73,22 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
+      comments: false
       share: true
       related: true
-  #pages
+  # Pages
   - scope:
       path: "_pages"
       type: pages
     values:
       layout: single
       author_profile: true
-
-  - scope:
-      path: ""
-      type: foo
-    values:
-      layout: single
+      comments: false
 
 # Permalinks & Pagination
 permalink: /:year/:month/:day/:title/
 paginate: 5
 paginate_path: "/blog/page:num/"
 
-# Markdown & Build settings
+# Markdown & Build
 markdown: kramdown
