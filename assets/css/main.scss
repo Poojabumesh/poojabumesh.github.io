@@ -61,3 +61,45 @@ body {
 }
 
 
+/* ===== Force pure-black layout ===== */
+html, body { background: #000 !important; }
+
+/* Major wrappers MM uses */
+.initial-content,
+.page,
+.page__content,
+.page__inner-wrap,
+.archive,
+.layout--splash .initial-content,
+.feature__wrapper,
+.masthead,
+.page__footer {
+  background-color: #000 !important;
+}
+
+/* Nav bar looks seamless on black */
+.masthead,
+.greedy-nav {
+  background-color: #000 !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid #111;
+}
+
+/* Footer line to separate slightly */
+.page__footer { border-top: 1px solid #111; }
+
+/* Text & links on black */
+body { color: #eaeaea; }
+a { color: #7dd3fc; }
+a:hover { color: #93c5fd; }
+
+/* Glassy cards on black */
+.feature__item {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+/* Remove any section panel tint around the feature row */
+.feature__wrapper { background: transparent !important; }
+
+
