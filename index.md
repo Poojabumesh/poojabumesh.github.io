@@ -31,3 +31,16 @@ feature_row:
     btn_class: "btn--primary"
 ---
 {% include feature_row %}
+<section class="about-blurb">
+  <h2>About Me</h2>
+  <p>
+    I’m Pooja, a Machine Learning Engineer focused on retrieval-first AI systems:
+    RAG pipelines, reranking, and production MLOps on AWS/GCP. I like taking ideas
+    from notebook to reliable, observable services.
+  </p>
+  <ul>
+    <li>RAG & Retrieval: embeddings, re-rankers, eval harnesses</li>
+    <li>MLOps: MLflow, Docker/K8s, CI/CD, monitoring</li>
+    <li>Cloud: AWS (Bedrock, S3), GCP (Vertex, Cloud Run)</li>
+  </ul>
+</section>

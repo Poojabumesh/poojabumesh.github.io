@@ -102,4 +102,15 @@ a:hover { color: #93c5fd; }
 /* Remove any section panel tint around the feature row */
 .feature__wrapper { background: transparent !important; }
 
+/* About blurb card */
+.about-blurb {
+  max-width: 980px;
+  margin: 2.5rem auto 0;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+}
+.about-blurb h2 { margin-top: 0; margin-bottom: .5rem; }
+.about-blurb ul { margin: .5rem 0 0 1.25rem; }
 
