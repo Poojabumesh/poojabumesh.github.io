@@ -1,11 +1,6 @@
 remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "dark"
 
-#sass
-sass:
-  sass_dir: _sass
-  style: compressed
-
 # Site identity
 locale: "en-US"
 title: "Pooja’s AI & ML Blog"
@@ -17,11 +12,6 @@ github_username: "poojabumesh"
 email: "poojabumesh@gmail.com"
 timezone: "America/Los_Angeles"
 title_separator: "-"
-
-# Optional branding
-logo: "/assets/images/pooja.jpeg"   # shows in masthead if present
-assets:
-  css: "/assets/css/custom.css"     # create this file for small tweaks
 
 # Search
 search: true
@@ -44,7 +34,7 @@ author:
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/pooja-baraluumesh"
 
-# Comments (disabled to avoid Staticman placeholder issues)
+# Comments (disabled until configured)
 comments:
   provider: false
 
@@ -60,7 +50,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 
-# Include / exclude
+# Include and exclude
 include:
   - _pages
 exclude:
@@ -69,17 +59,20 @@ exclude:
   - node_modules
   - vendor/
 
+# Collections (Projects)
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
 # Defaults
 defaults:
-<<<<<<< HEAD
-  # Posts
-=======
+  # global single layout default
   - scope:
       layout: single
     values: {}
-   
-#posts
->>>>>>> redesign-gradient-pop
+
+  # posts
   - scope:
       path: ""
       type: posts
@@ -87,32 +80,19 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: false
+      comments: true
       share: true
       related: true
-  # Pages
+
+  # pages (in _pages/)
   - scope:
-      path: "_pages"      type: pages
+      path: "_pages"
+      type: pages
     values:
       layout: single
       author_profile: true
-      comments: false
 
-# Permalinks & Pagination
-permalink: /:year/:month/:day/:title/
-paginate: 5
-paginate_path: "/blog/page:num/"
-
-<<<<<<< HEAD
-# Markdown & Build
-=======
-#collections
-collections:
-  projects:
-    output: true
-    permalink: /projects/:title/
-
-defaults:
+  # projects collection defaults
   - scope:
       path: ""
       type: projects
@@ -123,6 +103,15 @@ defaults:
       share: false
       related: false
 
+# Sass (for assets/css/main.scss)
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Permalinks & Pagination
+permalink: /:year/:month/:day/:title/
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 # Markdown & Build settings
->>>>>>> redesign-gradient-pop
 markdown: kramdown
