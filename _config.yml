@@ -1,6 +1,11 @@
 remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "dark"
 
+#sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
 # Site identity
 locale: "en-US"
 title: "Pooja’s AI & ML Blog"
@@ -71,8 +76,8 @@ exclude:
 defaults:
   - scope:
       layout: single
-    values:
-      minimal_mistakes_skin: "dark"
+    values: {}
+   
 #posts
   - scope:
       path: ""
@@ -86,8 +91,7 @@ defaults:
       related: true
   #pages
   - scope:
-      path: "_pages"
-      type: pages
+      path: "_pages"      type: pages
     values:
       layout: single
       author_profile: true
@@ -102,6 +106,23 @@ defaults:
 permalink: /:year/:month/:day/:title/
 paginate: 5
 paginate_path: "/blog/page:num/"
+
+#collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      share: false
+      related: false
 
 # Markdown & Build settings
 markdown: kramdown
