@@ -13,6 +13,22 @@ header:
       url: /assets/resume.pdf
     - label: "Email Me"
       url: mailto:poojabumesh@gmail.com
+
+{% include feature_row %}
+<section class="about-blurb">
+  <h2>About Me</h2>
+  <p>
+    I’m Pooja, a Machine Learning Engineer focused on retrieval-first AI systems:
+    RAG pipelines, reranking, and production MLOps on AWS/GCP. I like taking ideas
+    from notebook to reliable, observable services.
+  </p>
+  <ul>
+    <li>RAG & Retrieval: embeddings, re-rankers, eval harnesses</li>
+    <li>MLOps: MLflow, Docker/K8s, CI/CD, monitoring</li>
+    <li>Cloud: AWS (Bedrock, S3), GCP (Vertex, Cloud Run)</li>
+  </ul>
+</section>
+
 feature_row:
   - title: "Building an AI‑Powered Search with RAG, OpenAI, and Pinecone"
     excerpt: "OpenAI · Pinecone · Bedrock · Cohere reranker → measurable relevance gains."
@@ -30,17 +46,3 @@ feature_row:
     btn_label: "Project"
     btn_class: "btn--primary"
 ---
-{% include feature_row %}
-<section class="about-blurb">
-  <h2>About Me</h2>
-  <p>
-    I’m Pooja, a Machine Learning Engineer focused on retrieval-first AI systems:
-    RAG pipelines, reranking, and production MLOps on AWS/GCP. I like taking ideas
-    from notebook to reliable, observable services.
-  </p>
-  <ul>
-    <li>RAG & Retrieval: embeddings, re-rankers, eval harnesses</li>
-    <li>MLOps: MLflow, Docker/K8s, CI/CD, monitoring</li>
-    <li>Cloud: AWS (Bedrock, S3), GCP (Vertex, Cloud Run)</li>
-  </ul>
-</section>
