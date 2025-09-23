@@ -37,3 +37,27 @@
 /* Link contrast on dark */
 a { color: #7dd3fc; }
 a:hover { color: #93c5fd; }
+
+/* Force full black background */
+body,
+.page__content,
+.page__footer,
+.page__inner-wrap,
+.masthead,
+.archive,
+.page {
+  background-color: #000 !important;
+}
+
+/* Ensure text contrast is strong */
+body {
+  color: #eaeaea;
+}
+
+/* Card backgrounds darker */
+.feature__item {
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
