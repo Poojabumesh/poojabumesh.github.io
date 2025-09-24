@@ -18,6 +18,20 @@
               linear-gradient(135deg, #0ea5e920 0%, #8b5cf620 100%);
 }
 
+/* Reduce space between hero and About Me */
+.layout--splash .page__content {
+  margin-top: 1rem !important;   /* shrink top margin */
+}
+
+.about-blurb {
+  margin-top: 1rem !important;   /* tighten spacing */
+}
+
+.page__hero {
+  margin-bottom: 1rem !important;  /* reduce gap below hero */
+  padding-bottom: 2rem !important; /* default is often ~4-6rem */
+}
+
 
 /* ==============================
    Project / feature cards (glassy style)
