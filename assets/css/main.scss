@@ -2,17 +2,26 @@
 # Only the main Sass file needs front matter for Jekyll to process it.
 ---
 
-@import "minimal-mistakes/skins/dark"; // or "contrast"
-@import "minimal-mistakes";
+/* ==============================
+   Base theme imports
+   ============================== */
+@import "minimal-mistakes/skins/dark"; // dark skin
+@import "minimal-mistakes";            // core theme
 
-/* Gradient Pop hero */
+
+/* ==============================
+   Hero section (gradient background)
+   ============================== */
 .page__hero--overlay {
   background: radial-gradient(1200px 800px at 10% -10%, #8b5cf6 0%, transparent 60%),
               radial-gradient(1200px 800px at 100% 10%, #0ea5e9 0%, transparent 55%),
               linear-gradient(135deg, #0ea5e920 0%, #8b5cf620 100%);
 }
 
-/* Glassy cards */
+
+/* ==============================
+   Project / feature cards (glassy style)
+   ============================== */
 .feature__item {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -26,7 +35,10 @@
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
 
-/* Buttons */
+
+/* ==============================
+   Buttons (rounded / glassy)
+   ============================== */
 .btn--primary {
   border-radius: 999px;
   padding: .55rem 1rem;
@@ -34,78 +46,46 @@
   backdrop-filter: blur(6px);
 }
 
-/* Link contrast on dark */
-a { color: #7dd3fc; }
+
+/* ==============================
+   Links (contrast on dark)
+   ============================== */
+a       { color: #7dd3fc; }
 a:hover { color: #93c5fd; }
 
-/* Force full black background */
-body,
-.page__content,
-.page__footer,
-.page__inner-wrap,
-.masthead,
-.archive,
-.page {
-  background-color: #000 !important;
-}
 
-/* Ensure text contrast is strong */
-body {
-  color: #eaeaea;
-}
-
-/* Card backgrounds darker */
-.feature__item {
-  background: rgba(30, 30, 30, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-/* ===== Force pure-black layout ===== */
-html, body { background: #000 !important; }
-
-/* Major wrappers MM uses */
-.initial-content,
-.page,
-.page__content,
-.page__inner-wrap,
-.archive,
+/* ==============================
+   Global background + text colors
+   ============================== */
+html, body,
+.page, .page__content, .page__inner-wrap,
+.masthead, .archive, .page__footer,
 .layout--splash .initial-content,
-.feature__wrapper,
-.masthead,
-.page__footer {
-  background-color: #000 !important;
+.feature__wrapper {
+  background-color: #000 !important; /* pure black everywhere */
 }
+body { color: #eaeaea; }              /* light text for readability */
 
-/* Nav bar looks seamless on black */
-.masthead,
-.greedy-nav {
+
+/* ==============================
+   Navigation + footer
+   ============================== */
+.masthead, .greedy-nav {
   background-color: #000 !important;
   box-shadow: none !important;
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid #111;  /* subtle divider */
+}
+.page__footer {
+  border-top: 1px solid #111;     /* subtle divider */
 }
 
-/* Footer line to separate slightly */
-.page__footer { border-top: 1px solid #111; }
 
-/* Text & links on black */
-body { color: #eaeaea; }
-a { color: #7dd3fc; }
-a:hover { color: #93c5fd; }
-
-/* Glassy cards on black */
-.feature__item {
-  background: rgba(255,255,255,0.04) !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
-}
-
-/* Remove any section panel tint around the feature row */
-.feature__wrapper { background: transparent !important; }
-
-/* About blurb card */
-.about-blurb {
+/* ==============================
+   About Me card (on homepage)
+   ============================== */
+.about-blurb { 
   max-width: 980px;
-  margin: 2.5rem auto 0;
+  margin: 2.5rem auto 2.5rem;  /* space below before cards */
   padding: 1.25rem 1.5rem;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.12);
@@ -114,91 +94,27 @@ a:hover { color: #93c5fd; }
 .about-blurb h2 { margin-top: 0; margin-bottom: .5rem; }
 .about-blurb ul { margin: .5rem 0 0 1.25rem; }
 
-/* Widen single pages while keeping the left author sidebar */
+
+/* ==============================
+   Single pages with author sidebar
+   ============================== */
 .layout--single .page__inner-wrap {
-  max-width: 1200px;          /* overall container width (try 1100–1280) */
+  max-width: 1200px;         /* widen the whole container */
 }
-
 .layout--single .page__content {
-  max-width: none;             /* don't cap the content column */
-  flex: 1 1 auto;              /* let it take remaining space */
+  max-width: none;           /* let content expand fully */
+  flex: 1 1 auto;            /* take remaining space next to sidebar */
 }
-
-/* (optional) keep the author box a tidy width */
 .layout--single .page__sidebar {
-  flex: 0 0 280px;             /* ~280px fixed; adjust if you want smaller/larger */
-}
-
-/* Apply wide layout to all pages */
-.page__content {
-  max-width: 90% !important;
-  margin: 0 auto !important;
+  flex: 0 0 280px;           /* fixed sidebar width */
 }
 
 
-
-/* Specific overrides for different page types */
-
-/* Home page (splash layout) */
-.layout--splash .page__content {
-  max-width: 90% !important;
-}
-
-/* Projects/Portfolio page */
-.page--projects .page__content,
-.layout--archive .page__content {
-  max-width: 90% !important;
-}
-
-/* Blog posts and archive */
-.layout--posts .page__content,
-.layout--categories .page__content,
-.layout--tags .page__content {
-  max-width: 90% !important;
-}
-
-/* Single blog post pages */
-.layout--single .page__content {
-  max-width: 90% !important;
-}
-
-/* Resume page */
-.page--resume .page__content {
-  max-width: 90% !important;
-}
-
-/* Ensure feature items (project cards) also expand */
+/* ==============================
+   Page-wide content defaults
+   ============================== */
+.page__content,
 .feature__wrapper {
   max-width: 90% !important;
   margin: 0 auto !important;
-}
-
-/* Archive items (blog post listings) */
-.archive {
-  max-width: none !important;
-}
-
-/* If you have a grid of projects, make them use full width */
-.feature__wrapper .archive__item {
-  max-width: none;
-}
-
-/* Ensure headers and content elements use full width */
-.page__title,
-.page__content p,
-.page__content ul,
-.page__content h1,
-.page__content h2,
-.page__content h3 {
-  max-width: none;
-}
-
-/* Keep sidebar proportional if you have one */
-.page__sidebar {
-  flex: 0 0 280px;
-}
-
-/* Override any container restrictions */
-.page__inner-wrap {
-  max-width: 1200px !important;
 }
