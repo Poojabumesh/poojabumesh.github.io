@@ -128,3 +128,8 @@ a:hover { color: #93c5fd; }
 .layout--single .page__sidebar {
   flex: 0 0 280px;             /* ~280px fixed; adjust if you want smaller/larger */
 }
+
+.page__content {
+  max-width: 90% !important;
+  margin: 0 auto !important;
+}
