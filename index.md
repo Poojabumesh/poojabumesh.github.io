@@ -18,7 +18,7 @@ header:
 feature_row:
   - title: "Building an AI-Powered Search with RAG, OpenAI, and Pinecone"
     excerpt: "OpenAI · Pinecone · Bedrock · Cohere reranker → measurable relevance gains."
-    url: "_posts/2025-07-30-ai-product-retrieval-fixed.md"
+    url: "2025-07-30-ai-product-retrieval-fixed.md"
     btn_label: "Blog"
     btn_class: "btn--primary"
   - title: "Building a Three-in-One Tweet Intelligence Engine"
