@@ -29,14 +29,14 @@
   margin-top: 1rem !important;   /* tighten spacing */
 }
 
-
 /* ==============================
    Project / feature cards (glassy style)
    ============================== */
-.feature__wrapper {
+.feature__wrapper {  
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+  align-items: stretch; /* Make all cards same height */
 }
 
 .feature__item {
@@ -46,6 +46,8 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 16px;
   transition: transform .15s ease, box-shadow .15s ease;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -53,22 +55,34 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 1.5rem;
+}
+
+.feature__item .archive__item-title {
+  flex: 0 0 auto;
+  margin-bottom: 1rem;
+}
+
+.feature__item .archive__item-excerpt {
+  flex: 1 1 auto;
+  margin-bottom: 1rem;
 }
 
 .feature__item .archive__item-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  margin-top: auto;
 }
 
 .feature__item .btn {
-  margin-top: auto; /* pins button to bottom */
+  margin-top: auto;
 }
-
+  
 .feature__item:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
+
+
 
 /* ==== Projects page (layout--collection) ==== */
 
