@@ -1,6 +1,9 @@
 ---
-permalink: /about/
+layout: single
 title: "About"
+permalink: /about/
+author_profile: false   # hides the left sidebar on this page
+classes: wide           # wider content column; use "full" for edge-to-edge
 ---
 
 Hi, I'm **Pooja**, a Machine Learning Engineer passionate about turning data into impactful, production-ready AI solutions. With a Master's in Data Science and hands-on experience fine-tuning diffusion models, building recommendation systems, and orchestrating MLOps pipelines, I love tackling challenges at every stage of the ML lifecycle—from data collection and feature engineering to model deployment and monitoring.
