@@ -35,6 +35,42 @@
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
 
+/* ==== Projects page (layout--collection) ==== */
+
+/* Widen the container */
+body.layout--collection .page__inner-wrap {
+  max-width: 1200px;        /* try 1200–1280 if you want even wider */
+  margin: 0 auto;
+}
+
+/* Make each project entry a full-width row */
+body.layout--collection .archive {
+  max-width: none;
+}
+
+body.layout--collection .archive__item {
+  padding: 0 0 1.25rem 0;
+  margin: 0 0 1.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Bigger, more prominent project title; link is the headline */
+body.layout--collection .archive__item-title a {
+  font-size: 1.5rem;
+  line-height: 1.35;
+  display: inline-block;
+}
+
+/* Optional: dim the meta/excerpt for readability */
+body.layout--collection .archive__item-excerpt {
+  color: #cfcfcf;
+  margin-top: .35rem;
+  max-width: 60ch;  /* keep lines readable */
+}
+
+/* If any teaser thumbnails appear, stack them nicely (or hide them) */
+body.layout--collection .archive__item-teaser { display: none; }
+
 
 /* ==============================
    Buttons (rounded / glassy)
