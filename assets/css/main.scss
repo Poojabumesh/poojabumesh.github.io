@@ -114,3 +114,6 @@ a:hover { color: #93c5fd; }
 .about-blurb h2 { margin-top: 0; margin-bottom: .5rem; }
 .about-blurb ul { margin: .5rem 0 0 1.25rem; }
 
+.layout--single .page__content {
+  max-width: 1200px;  /* try 1100–1200 for readability */
+}
