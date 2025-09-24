@@ -10,7 +10,7 @@ header:
     - label: "View Projects"
       url: /projects/
     - label: "Download Resume"
-      url: /assets/resume.pdf
+      url: /assets/POOJA_BARALU_UMESH.pdf
     - label: "Email Me"
       url: mailto:poojabumesh@gmail.com
 
