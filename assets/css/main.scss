@@ -92,19 +92,29 @@ body.layout--collection .archive__item-teaser { display: none; }
    Blog page
    ============================== */
 
-/* Widen blog archive pages like Projects */
-.layout--archive .page__content,
-.layout--home .page__content,
-.layout--posts .page__content {
-  max-width: 90% !important;   /* stretch wider */
-  margin: 0 auto !important;
+/* ===== Blog index like Projects (wide with sidebar) ===== */
+body.layout--posts #main {
+  display: flex;          /* sidebar + content side-by-side */
+  gap: 2rem;
+  max-width: 1200px;      /* widen page container */
+  margin: 0 auto;
 }
 
-.layout--archive .archive__item,
-.layout--home .archive__item {
-  max-width: none !important; /* let each post preview use full width */
+body.layout--posts .sidebar {
+  flex: 0 0 280px;        /* fixed author sidebar width */
 }
 
+body.layout--posts .archive {
+  flex: 1 1 auto;         /* take remaining space */
+  max-width: none !important;  /* remove MM cap */
+}
+
+/* Optional: nicer spacing between post previews */
+body.layout--posts .archive__item {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
 
 
 /* ==============================
