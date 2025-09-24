@@ -36,7 +36,6 @@
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
-  align-items: stretch; /* Make all cards same height */
 }
 
 .feature__item {
@@ -48,7 +47,6 @@
   transition: transform .15s ease, box-shadow .15s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .feature__item .archive__item {
