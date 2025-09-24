@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: "Machine Learning Engineer | AI Engineer"
+title: "Machine Learning Engineer &#124; AI Engineer"
 subtitle: "I build production-grade AI: retrieval pipelines, LLM orchestration, and reliable MLOps on AWS/GCP."
 header:
   overlay_color: "#000"
