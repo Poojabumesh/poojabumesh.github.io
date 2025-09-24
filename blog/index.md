@@ -1,6 +1,9 @@
 ---
-layout: posts
+layout: collection
 title: "Blog"
-permalink: /blog/
+collection: posts
+entries_layout: list
 author_profile: true
+classes: wide
+permalink: /blog/
 ---
