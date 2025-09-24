@@ -2,7 +2,7 @@
 layout: single
 title: "About"
 permalink: /about/
-author_profile: false   # hides the left sidebar on this page
+author_profile: true   # hides the left sidebar on this page
 classes: wide           # wider content column; use "full" for edge-to-edge
 ---
 

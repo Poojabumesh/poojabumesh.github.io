@@ -114,6 +114,17 @@ a:hover { color: #93c5fd; }
 .about-blurb h2 { margin-top: 0; margin-bottom: .5rem; }
 .about-blurb ul { margin: .5rem 0 0 1.25rem; }
 
+/* Widen single pages while keeping the left author sidebar */
+.layout--single .page__inner-wrap {
+  max-width: 1200px;          /* overall container width (try 1100–1280) */
+}
+
 .layout--single .page__content {
-  max-width: 1200px;  /* try 1100–1200 for readability */
+  max-width: none;             /* don't cap the content column */
+  flex: 1 1 auto;              /* let it take remaining space */
+}
+
+/* (optional) keep the author box a tidy width */
+.layout--single .page__sidebar {
+  flex: 0 0 280px;             /* ~280px fixed; adjust if you want smaller/larger */
 }
