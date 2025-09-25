@@ -34,7 +34,7 @@
    ============================== */
 .feature__wrapper {  
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
@@ -56,11 +56,7 @@
   padding: 1.5rem;
 }
 
-.feature__item .archive__item-title {
-  flex: 0 0 auto;
-  margin-bottom: 1rem;
-}
-
+.feature__item .archive__item-title,
 .feature__item .archive__item-excerpt {
   white-space: normal !important;
   writing-mode: horizontal-tb !important;
