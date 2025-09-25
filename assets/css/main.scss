@@ -34,7 +34,7 @@
    ============================== */
 .feature__wrapper {  
   display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
@@ -62,8 +62,11 @@
 }
 
 .feature__item .archive__item-excerpt {
-  flex: 1 1 auto;
-  margin-bottom: 1rem;
+  white-space: normal !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  word-break: normal !important;         /* don’t split in the middle of words */
+  overflow-wrap: anywhere !important;
 }
 
 .feature__item .archive__item-body {
