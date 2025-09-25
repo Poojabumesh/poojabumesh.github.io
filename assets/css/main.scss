@@ -34,7 +34,7 @@
    ============================== */
 .feature__wrapper {  
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 1.5rem;
 }
 
