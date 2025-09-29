@@ -62,7 +62,7 @@ exclude:
 # Collections (Projects)
 collections:
   projects:
-    output: true
+    output: false
     permalink: /projects/:title/
 
 # Defaults
