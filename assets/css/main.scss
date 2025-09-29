@@ -20,6 +20,10 @@
 
 }
 
+.layout--splash .page__content {
+  margin-top: 1rem !important;   /* shrink top margin */
+}
+
 .layout--splash .initial-content,
 .layout--splash .page__content {
   width: 100% !important;
@@ -32,6 +36,11 @@
 
 .about-blurb {
   margin-top: 1rem !important;   /* tighten spacing */
+  margin-left:0 !important;
+  margin-right: auto !important;
+  max-width: 1200px;            /* keep a nice bound, same as heading */
+  padding-left: 1rem;           /* add small padding so it doesn’t touch edge */
+  padding-right: 1rem;
 }
 
 /* ==============================
@@ -39,9 +48,13 @@
    ============================== */
 /* 2) Responsive feature grid: 1/2/3 columns */
 .feature__wrapper {
+  display:grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));;
   width: 100% !important;
   max-width: 100% !important;
   display: grid !important;
+  margin-left:0;
+  margin-right:auto;
   gap: 1.5rem;
 
   /* Use a smaller min width so 2–3 cards can actually fit */
