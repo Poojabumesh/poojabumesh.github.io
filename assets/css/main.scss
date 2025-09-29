@@ -20,10 +20,15 @@
 
 }
 
-/* Reduce space between hero and About Me */
+.layout--splash .initial-content,
 .layout--splash .page__content {
-  margin-top: 1rem !important;   /* shrink top margin */
+  width: 100% !important;
+  max-width: 1200px !important;   /* try 1200–1280 if you want wider */
+  margin: 0 auto !important;
+  padding-left: 24px;
+  padding-right: 24px;
 }
+
 
 .about-blurb {
   margin-top: 1rem !important;   /* tighten spacing */
@@ -32,11 +37,23 @@
 /* ==============================
    Project / feature cards (glassy style)
    ============================== */
-.feature__wrapper {  
+/* 2) Responsive feature grid: 1/2/3 columns */
+.feature__wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 1.5rem;
+
+  /* Use a smaller min width so 2–3 cards can actually fit */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
+
+.feature__item {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
 
 .feature__item {
   background: rgba(255, 255, 255, 0.08);
