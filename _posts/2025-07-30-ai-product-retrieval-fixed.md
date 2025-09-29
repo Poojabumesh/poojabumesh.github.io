@@ -9,6 +9,7 @@ excerpt: "During my internship as a Machine Learning Engineer at a fast‑paced 
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
+permalink: /blog/ai-product-retrieval-fixed/ 
 ---
 
 <div class="blog-header" markdown="1">
