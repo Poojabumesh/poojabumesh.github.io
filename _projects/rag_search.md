@@ -1,7 +1,7 @@
 ---
 title: "Building an AI-Powered Search with RAG, OpenAI, and Pinecone"
 excerpt: "Pinecone · OpenAI · Bedrock · Cohere reranker → measurable relevance gains."
-permalink: /2025/07/30/ai-product-retrieval-fixed/
+permalink: /projects/rag-search/ 
 # optional:
 # date: 2025-07-30
 tags: [RAG, Retrieval, Pinecone, OpenAI]
