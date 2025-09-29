@@ -49,17 +49,22 @@
 /* 2) Responsive feature grid: 1/2/3 columns */
 .feature__wrapper {
   display:grid !important;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr) !important;
   width: 100% !important;
   max-width: 100% !important;
-  display: grid !important;
   margin-left:0;
   margin-right:auto;
   gap: 1.5rem;
 
-  /* Use a smaller min width so 2–3 cards can actually fit */
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
+
+/* Optional: Stack on mobile if needed */
+@media (max-width: 768px) {
+  .feature__wrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 
 .feature__item {
   float: none !important;
