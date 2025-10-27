@@ -1,7 +1,8 @@
 ---
 title: "Building a Three-in-One Tweet Intelligence Engine"
-layout: post
+layout: single
 date: 2025-08-08
+show_date: true
 categories: [NLP, Social Media]
 tags: [Twitter, NLP, Transformers, Marketing]
 author: poojabumesh
