@@ -19,5 +19,9 @@ This GitHub Pages site (<https://poojabumesh.github.io>) curates my projects, te
 | Project | What it Does | Tech Highlights |
 |---------|--------------|-----------------|
 | **Enhancing Product Search with AI: My Internship Experience** | Hybrid vector + LLM retrieval for e-commerce | MiniLM, Pinecone, AWS Bedrock, Lambda |
+| Twitter Prediction & Insights | Predicts sentiment/topics and forecasts engagement (likes/RTs) from tweets; builds features from text + metadata for downstream ranking | Tweepy/X API, Transformers (BERTweet), scikit-learn/XGBoost, PyTorch, MLflow, Airflow |
+| Happy Robot | Grid-world robot that navigates obstacles without collisions; compares greedy vs A*/RL policies and visualizes paths | Python, NumPy, A* search / Q-learning, Streamlit (viz), pytest (tests) |
+
+
 
 See the **https://poojabumesh.github.io/posts/** section of the site for write-ups, code, and demo links.
