@@ -38,7 +38,7 @@ feature_row:
   
   <h2>About Me</h2>
   <p>
-    Hey, I'm Pooja 👋 — a Machine Learning Engineer specializing in <strong>retrieval-first AI systems</strong>.
+    Hey, I'm Pooja, a Machine Learning Engineer specializing in <strong>retrieval-first AI systems</strong>.
     I build RAG pipelines, semantic search, and production ML infrastructure that actually scales.
   </p>
   <p>
