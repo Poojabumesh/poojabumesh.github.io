@@ -27,7 +27,7 @@ feature_row:
     btn_label: "Project"
     btn_class: "btn--primary"
   - title: "A(I)YE Chef"
-    excerpt: "Ingredient detection → RAG recipes, containerized on GCP."
+    excerpt: "Built an ingredient detection pipeline using computer vision to identify food items, then match them to recipes. Containerized with Docker and deployed on GCP Cloud Run for scalable inference."
     url: "https://github.com/Poojabumesh/A-I-YE-Chef"
     btn_label: "Project"
     btn_class: "btn--primary"
@@ -35,17 +35,36 @@ feature_row:
 
 <!-- About block goes AFTER front matter, BEFORE the cards -->
 <section class="about-blurb">
+  
   <h2>About Me</h2>
   <p>
-    I’m Pooja, a Machine Learning Engineer focused on retrieval-first AI systems:
-    RAG pipelines, reranking, and production MLOps on AWS/GCP. I like taking ideas
-    from notebook to reliable, observable services.
+    Hey, I'm Pooja 👋 — a Machine Learning Engineer specializing in <strong>retrieval-first AI systems</strong>.
+    I build RAG pipelines, semantic search, and production ML infrastructure that actually scales.
   </p>
+  <p>
+    I love taking experimental ideas from Jupyter notebooks to <strong>reliable, observable services</strong> 
+    running in production. My sweet spot is architecting end-to-end systems where retrieval quality, 
+    latency, and reliability all matter.
+  </p>
+  <h3>What I Focus On</h3>
   <ul>
-    <li>RAG & Retrieval: embeddings, re-rankers, eval harnesses</li>
-    <li>MLOps: MLflow, Docker/K8s, CI/CD, monitoring</li>
-    <li>Cloud: AWS (Bedrock, S3), GCP (Vertex, Cloud Run)</li>
+    <li>
+      <strong>🔍 RAG & Retrieval:</strong> Semantic embeddings • Vector databases (Pinecone, FAISS) • 
+      Cohere reranking • Custom eval frameworks • Retrieval optimization
+    </li>
+    <li>
+      <strong>⚙️ MLOps & Infrastructure:</strong> MLflow experiment tracking • Docker/Kubernetes deployments • 
+      CI/CD pipelines • Model monitoring & observability • FastAPI microservices
+    </li>
+    <li>
+      <strong>☁️ Cloud & Scale:</strong> AWS (Bedrock, SageMaker, S3, EMR) • 
+      GCP (Vertex AI, Cloud Run) • Distributed training • Production serving
+    </li>
   </ul>
+  <p>
+    <em>Currently exploring: multi-modal retrieval, fine-tuning diffusion models, 
+    and making LLMs work reliably in production.</em>
+  </p>
 </section>
 
 {% include feature_row %}
